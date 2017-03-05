@@ -5,18 +5,22 @@
 Write a function which adds a class "highlight" to the introduction paragraph
 */
 var highlightText = function(){
-
+  var intro = document.querySelector(".introduction");
+  console.log(intro);
+  intro.className += " highlight";
 }
-// highlightText(); //uncomment me to test
+highlightText(); //uncomment me to test
 
 /*
 Write a function which removes the class "highlight" from the introduction
 paragraph
 */
 var unHighlightText = function(){
+  var intro = document.querySelector(".introduction");
+  intro.classList.remove("highlight");
 
 }
-// unHighlightText(); //uncomment me to test
+unHighlightText(); //uncomment me to test
 
 
 /*
@@ -24,9 +28,15 @@ Write a function which, if the introduction paragraph has the class "highlight",
 it will be removed; otherwise the class "highlight" is added.
 */
 var toggleHighlight = function(){
-
+  var intro = document.querySelector(".introduction");
+  if (intro.classList.contains("highlight")) {
+    intro.classList.remove("highlight");
+  }
+  else {
+    intro.classList.add("highlight");
+  }
 }
-// toggleHighlight(); //uncomment me to test
+toggleHighlight(); //uncomment me to test
 
 
 
@@ -34,9 +44,11 @@ var toggleHighlight = function(){
 Write a function which returns all text content of the introduction paragraph
 */
 var getText = function(){
+  var intro = document.querySelector(".introduction");
+  return intro.innerHTML;
 
 }
-// getText(); //uncomment me to test
+getText(); //uncomment me to test
 
 
 /*
@@ -44,18 +56,25 @@ Write a function which returns the number of charachters in the introduction
 paragraph
 */
 var getNumChars = function(){
+  //WITH REGEX
+  // var intro = document.querySelector(".introduction");
+  // return intro.innerHTML.length;
 
+  return getText().length;
 }
-// getNumChars(); //uncomment me to test
+getNumChars(); //uncomment me to test
 
 
 /*
 Write a function which returns the number of words in the introduction paragraph
 */
 var getNumWords = function(){
-
+  //WITH REGEX
+  // var intro = document.querySelector(".introduction");
+  // return intro.innerHTML.match(/\w+[., ]/g).length;
+  return getText().split(' ').length;
 }
-// getNumWords(); //uncomment me to test
+getNumWords(); //uncomment me to test
 
 
 /*
@@ -63,27 +82,32 @@ Write a function which returns the number of sentences in the introduction
 paragraph
 */
 var getNumSentences = function(){
+  // var intro = document.querySelector(".introduction");
+  // return intro.innerHTML.match(/[\w\s]+\./g).length;
+
+  return getText().split('. ').length;
 
 }
-// getNumSentences(); //uncomment me to test
+getNumSentences(); //uncomment me to test
 
 /*
 Write a function which takes a string, and returns true if the introduction
 paragraph contains that string, and false if it doesn't.
 */
-var containsString = function(){
+var containsString = function(string) {
+  return getText().includes(string);
 
 }
-// containsString(); //uncomment me to test
+containsString(); //uncomment me to test
 
 
 /*
 Write a function which returns the value in the `firstName` text input
 */
 var getFirstNameValue = function(){
-
+  return document.querySelector('.firstName').value;
 }
-// getFirstNameValue(); //uncomment me to test
+getFirstNameValue(); //uncomment me to test
 
 
 /*
